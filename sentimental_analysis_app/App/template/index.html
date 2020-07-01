@@ -1,0 +1,31 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %} Sentimental Analysis {% endblock title %}
+{% block content %}
+<div class = "container">
+  <h1> Write an english sentence </h1>
+  <hr>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="ex. He is a nice guy" aria-label="Input of model" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" id='predict'>Button</button>
+    </div>
+  </div>
+    <p id=result></p>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+// sending ajax call to flask server in order to predict and return the value in single page
+$("#predict").click(function(){
+  $.ajax({
+    type: 'POST',
+    url: "/_predict",
+    data: {"sentence": $("input").val()},
+    dataType: "text",
+    success: function(data){
+      $('#result').text("Result is: " + JSON.parse(data).class_name);
+    }
+  });
+});
+</script>
+{% endblock %}

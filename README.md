@@ -30,5 +30,5 @@ __explaination__:
 and at last specify the tensorflow serving docker image to download
 
 When you done with setting the docker instance, it's time to run the flask server.
-It can be done by running `python app.py` in command line inside of the application directory.
+It can be done by running `python app.py` from command line inside of the application directory.
 Then you should be able to use the application.

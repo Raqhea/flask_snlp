@@ -17,7 +17,7 @@ After installing all the requirements, install the Tensorflow serving docker ima
 
 `docker run -p 8501:8501 --name=sentimental_analysis -v “[path to model]:/v1/models/sentimental_analysis/” -e MODEL_NAME=sentimental_analysis tensorflow/serving`
 
-__explaination__:
+__explanation__:
 
 `-p 8501:8501`: specifies the port that Tensorflow Server works, the part after ":" is for Docker serving,
 
